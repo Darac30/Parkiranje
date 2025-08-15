@@ -1,4 +1,5 @@
 ﻿using BACKEND.Data;
+using BACKEND.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BACKEND.Controllers
@@ -30,6 +31,26 @@ namespace BACKEND.Controllers
             catch (Exception e)
             {
                 return BadRequest(e);
+            }
+        }
+
+
+
+        [HttpPost]
+        public IActionResult Post(Razina razina)
+        {
+            try
+            {
+                _context.Razine.Add(razina);
+                _context.SaveChanges();
+                return StatusCode(StatusCodes.Status201Created, razina);
+
+            }
+
+            catch (Exception e)
+            { 
+                return BadRequest(e);
+            
             }
         }
 
