@@ -5,6 +5,7 @@ import NavBarEdunova from './components/NavBarEdunova'
 import { Route, Routes } from 'react-router-dom'
 import { RouteNames } from './constants'
 import Pocetna from './pages/Pocetna'
+import RazinePregled from './pages/razine/RazinePregled'
 
 function App() {
   
@@ -14,6 +15,7 @@ function App() {
       <NavBarEdunova />
       <Routes>
         <Route path={RouteNames.HOME} element={<Pocetna />} />
+        <Route path={RouteNames.RAZINA_PREGLED} element={<RazinePregled />} />
       </Routes>
       <hr />
       &copy; Edunova

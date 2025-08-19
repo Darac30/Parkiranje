@@ -1,0 +1,13 @@
+
+.ruka{
+    cursor: pointer;
+}
+
+.app{
+    min-height: 600px;
+    border: 2px dotted #a47864;
+    margin: 50px;
+    padding: 100px;
+    color: #b430f0; 
+    font-size: 1.5rem;
+}
