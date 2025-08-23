@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom'
 import { RouteNames } from './constants'
 import Pocetna from './pages/Pocetna'
 import RazinePregled from './pages/razine/RazinePregled'
+import RazineDodaj from './pages/razine/RazineDodaj'
 
 function App() {
   
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path={RouteNames.HOME} element={<Pocetna />} />
         <Route path={RouteNames.RAZINA_PREGLED} element={<RazinePregled />} />
+        <Route path={RouteNames.RAZINA_NOVI} element={<RazineDodaj />} />
       </Routes>
       </Container>
       

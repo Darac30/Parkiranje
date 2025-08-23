@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Container, Table } from "react-bootstrap";
 import RazinaService from "../../services/RazinaService"
 import { NumericFormat } from "react-number-format";
+import { Link } from "react-router-dom";
+import { RouteNames } from "../../constants";
 
 
 export default function RazinePregled(){
@@ -26,7 +28,13 @@ export default function RazinePregled(){
 
     return(
         <>
-        Tablični Pregled razina
+        
+        <Link 
+        className="btn btn-success"
+        to={RouteNames.RAZINA_NOVI}>Dodavanje nove razine</Link>
+
+
+
         <Table striped bordered hover responsive>
             <thead>
                 <tr>
