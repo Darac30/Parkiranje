@@ -18,6 +18,17 @@ builder.Services.AddDbContext<EdunovaContext>(o =>
 }
 );
 
+// Ovime se svi od svuda, na sve naèine mogu spojiti na naš API
+builder.Services.AddCors(o =>
+{
+    o.AddPolicy("CorsPolicy", p =>
+    {
+        p.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+    });
+});
+
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -40,5 +51,15 @@ app.UseSwaggerUI(options =>
 
 
 app.MapControllers();
+
+
+app.UseStaticFiles(); // omoguæi korištenje statiènih datoteka
+app.UseDefaultFiles(); // datoteke se nalaze u wwwroot
+app.MapFallbackToFile("index.html"); // ako neèega nema idi na index.html
+
+
+
+app.UseCors("CorsPolicy");
+
 
 app.Run();
