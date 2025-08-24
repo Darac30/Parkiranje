@@ -1,16 +1,58 @@
 import { Button, Col, Form, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { RouteNames } from "../../constants";
+import RazinaService from "../../services/RazinaService";
 
 
 export default function RazineDodaj(){
+
+    const navigate = useNavigate();
+
+
+
+    async function dodaj(razina){
+        const odgovor = await RazinaService.dodaj(razina);
+
+        navigate(RouteNames.RAZINA_PREGLED);
+
+    }
+
+
+    function odradiSubmit(e){     // e je event
+        e.preventDefault();
+
+        let podaci = new FormData(e.target);  // dohvaćamo sve podatke iz forme
+
+        dodaj(
+
+        {
+  
+          oznakaRazine: podaci.get('oznakaRazine'),
+          cijena: parseFloat(podaci.get('cijena'))
+        }
+
+        
+    )
+
+
+    }
+
+
+
+
+
+
+
+
+
+
     return (
         <>
 
 
         Dodavanje razine
 
-        <Form>
+        <Form onSubmit={odradiSubmit}>
 
             <Form.Group controlId="oznakaRazine">
                 <Form.Label>Oznaka razine</Form.Label>

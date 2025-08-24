@@ -12,6 +12,16 @@ async function get() {
     .catch((e)=>{})
 }
 
+async function dodaj(razina) {
+    return await HttpService.post('/Razina', razina)
+    // sve je u redu, dobili smo odgovor
+    .then((odgovor)=>{
+        return true
+    })
+    .catch((e)=>{return false})
+}
+
 export default{
-    get
+    get,
+    dodaj
 }
