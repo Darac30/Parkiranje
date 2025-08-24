@@ -21,7 +21,17 @@ async function dodaj(razina) {
     .catch((e)=>{return false})
 }
 
+async function obrisi(sifra) {
+    return await HttpService.delete('/Razina/' + sifra)
+    // sve je u redu, dobili smo odgovor
+    .then((odgovor)=>{
+        return true
+    })
+    .catch((e)=>{return false})
+}
+
 export default{
     get,
-    dodaj
+    dodaj,
+    obrisi
 }

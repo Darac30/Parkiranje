@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Container, Table } from "react-bootstrap";
+import { Button, Container, Table } from "react-bootstrap";
 import RazinaService from "../../services/RazinaService"
 import { NumericFormat } from "react-number-format";
 import { Link } from "react-router-dom";
@@ -24,6 +24,18 @@ export default function RazinePregled(){
 
     },[])
 
+    function obrisi(sifra){
+        if(!confirm('Sigurno obrisati?')){
+            return;
+        }
+        brisanje(sifra)
+    }
+
+    async function brisanje(sifra){
+        const odgovor = await RazinaService.obrisi(sifra);
+        dohvatiRazine();
+    }
+
 
 
     return(
@@ -40,6 +52,7 @@ export default function RazinePregled(){
                 <tr>
                     <th>Oznaka razine</th>
                     <th>Cijena</th>
+                    <th>Akcija</th>
                 </tr>
             </thead>
             <tbody>
@@ -57,6 +70,11 @@ export default function RazinePregled(){
                             fixedDecimalScale
 
                             />
+                        </td>
+                        <td>
+                            <Button variant="danger" onClick={()=>obrisi(razina.sifra)}>
+                                Obriši
+                            </Button>
                         </td>
 
                     </tr>
