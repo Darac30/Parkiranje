@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import { Button, Container, Table } from "react-bootstrap";
 import RazinaService from "../../services/RazinaService"
 import { NumericFormat } from "react-number-format";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { RouteNames } from "../../constants";
 
 
 export default function RazinePregled(){
 
     const[razine, setRazine] = useState([]);
+    const navigate = useNavigate();
 
 
 
@@ -72,6 +73,10 @@ export default function RazinePregled(){
                             />
                         </td>
                         <td>
+                            <Button  onClick={()=>navigate(`/razine/${razina.sifra}`)}>
+                                Promjena
+                            </Button>
+
                             <Button variant="danger" onClick={()=>obrisi(razina.sifra)}>
                                 Obriši
                             </Button>
