@@ -61,7 +61,7 @@ export default function RazineDodaj(){
 
             <Form.Group controlId="cijena">
                 <Form.Label>Cijena</Form.Label>
-                <Form.Control type="numberxt" name="cijena" step={0.01} />
+                <Form.Control type="number" step={0.01} name="cijena" />
             </Form.Group>
 
             <hr style={{marginTop: '50px'}} />

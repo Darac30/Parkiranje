@@ -5,6 +5,7 @@ import RazinaService from "../../services/RazinaService";
 import { useEffect, useState } from "react";
 
 
+
 export default function RazinePromjena(){
 
     const navigate = useNavigate();
@@ -79,7 +80,7 @@ export default function RazinePromjena(){
 
             <Form.Group controlId="cijena">
                 <Form.Label>Cijena</Form.Label>
-                <Form.Control type="numberxt" name="cijena" step={0.01}
+                <Form.Control type="number" step={0.01} name="cijena"
                 defaultValue={razina.cijena} />
             </Form.Group>
 
